@@ -1,0 +1,647 @@
+ا<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارتقاء العملات - منصة استثمار العملات الرقمية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2e57e8;
+            --secondary-color: #00c6a5;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --danger-color: #e63946;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-left: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .auth-buttons .btn {
+            margin-right: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1e45c7;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-buttons {
+            margin-top: 2rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        /* Investment Plans */
+        .plans {
+            padding: 5rem 0;
+            background-color: #f5f7fa;
+        }
+        
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .plan-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .plan-card.popular {
+            border: 2px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .plan-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-price span {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Statistics Section */
+        .stats {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4a6cf7 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin: 1.5rem 0;
+            }
+            
+            .auth-buttons {
+                margin-bottom: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>ارتقاء العملات</span>
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">عن المنصة</a></li>
+                    <li><a href="#">خطط الاستثمار</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+                
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-primary">تسجيل الدخول</a>
+                    <a href="#" class="btn btn-outline">إنشاء حساب</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>استثمر في المستقبل مع ارتقاء العملات</h1>
+            <p>منصة رائدة في الاستثمار بالعملات الرقمية تقدم لك أفضل الفرص لتنمية أموالك بأمان وشفافية</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">ابدأ الاستثمار الآن</a>
+                <a href="#" class="btn btn-outline">تعرف أكثر</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>لماذا تختار ارتقاء العملات؟</h2>
+                <p>نقدم لك مجموعة من المميزات التي تجعلنا الخيار الأمثل للاستثمار في العملات الرقمية</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>أمان عالي</h3>
+                    <p>نستخدم أحدث تقنيات التشفير لحماية استثماراتك وبياناتك الشخصية</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>عوائد مضمونة</h3>
+                    <p>خطط استثمارية مدروسة بعناية لتحقيق أعلى العوائد بأقل المخاطر</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>سيولة يومية</h3>
+                    <p>يمكنك سحب أرباحك في أي وقت مع معالجة سريعة خلال 24 ساعة</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم فني 24/7</h3>
+                    <p>فريق دعم فني متاح على مدار الساعة لمساعدتك في أي استفسار</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>خبراء ماليون</h3>
+                    <p>فريق من الخبراء الماليين يدير استثماراتك بأعلى معايير الاحترافية</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>تغطية عالمية</h3>
+                    <p>نعمل في أهم أسواق العملات الرقمية حول العالم لتحقيق أفضل النتائج</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Plans -->
+    <section class="plans">
+        <div class="container">
+            <div class="section-title">
+                <h2>خطط الاستثمار</h2>
+                <p>اختر الخطة التي تناسبك واستثمر في العملات الرقمية بثقة</p>
+            </div>
+            
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <h3>الخطة الأساسية</h3>
+                    <div class="plan-price">5% <span>يوميًا</span></div>
+                    <ul class="plan-features">
+                        <li>استثمار من $100 إلى $5,000</li>
+                        <li>عائد يومي ثابت</li>
+                        <li>مدة 30 يوم</li>
+                        <li>سحب الأرباح يوميًا</li>
+                        <li>دعم فني أساسي</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اختر هذه الخطة</a>
+                </div>
+                
+                <div class="plan-card popular">
+                    <div class="popular-badge">الأكثر رواجًا</div>
+                    <h3>الخطة الممتازة</h3>
+                    <div class="plan-price">7.5% <span>يوميًا</span></div>
+                    <ul class="plan-features">
+                        <li>استثمار من $5,001 إلى $20,000</li>
+                        <li>عائد يومي مرتفع</li>
+                        <li>مدة 45 يوم</li>
+                        <li>سحب الأرباح يوميًا</li>
+                        <li>دعم فني مميز</li>
+                        <li>مشورة مالية مجانية</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اختر هذه الخطة</a>
+                </div>
+                
+                <div class="plan-card">
+                    <h3>الخطة الماسية</h3>
+                    <div class="plan-price">10% <span>يوميًا</span></div>
+                    <ul class="plan-features">
+                        <li>استثمار من $20,001 إلى $100,000</li>
+                        <li>عائد يومي ممتاز</li>
+                        <li>مدة 60 يوم</li>
+                        <li>سحب الأرباح يوميًا</li>
+                        <li>دعم فني أولوية</li>
+                        <li>إدارة محفظة شخصية</li>
+                        <li>ندوات استثمارية حصرية</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اختر هذه الخطة</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>إحصائيات المنصة</h2>
+                <p>انضم إلى آلاف المستثمرين الذين يثقون بنا لتنمية أموالهم</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>+25,000</h3>
+                    <p>مستثمر مسجل</p>
+                </div>
+                
+                <div class="stat-item">
+                    <h3>+$120M</h3>
+                    <p>حجم استثمارات</p>
+                </div>
+                
+                <div class="stat-item">
+                    <h3>+$15M</h3>
+                    <p>أرباح مستثمرين</p>
+                </div>
+                
+                <div class="stat-item">
+                    <h3>99.8%</h3>
+                    <p>معدل رضا العملاء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <span>ارتقاء العملات</span>
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <p>منصة رائدة في الاستثمار بالعملات الرقمية تقدم حلولاً مالية مبتكرة وآمنة لتحقيق أعلى العوائد.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#">عن المنصة</a></li>
+                        <li><a href="#">خطط الاستثمار</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>الخدمات</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">التداول الآلي</a></li>
+                        <li><a href="#">إدارة المحافظ</a></li>
+                        <li><a href="#">الاستشارات المالية</a></li>
+                        <li><a href="#">التدريب والتعليم</a></li>
+                        <li><a href="#">تحليل السوق</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> دبي، الإمارات العربية المتحدة</li>
+                        <li><i class="fas fa-envelope"></i> info@coinrise.example</li>
+                        <li><i class="fas fa-phone"></i> +971 50 123 4567</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 ارتقاء العملات. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // يمكن إضافة جافاسكريبت هنا للوظائف التفاعلية
+        document.addEventListener('DOMContentLoaded', function() {
+            // كود جافاسكريبت يمكن إضافته لاحقًا
+            console.log('تم تحميل الصفحة بنجاح');
+        });
+    </script>
+</body>
+</html>
